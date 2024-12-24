@@ -1,0 +1,39 @@
+Here's a simple Python script to create a digital watch using the `tkinter` library:
+
+```python
+import tkinter as tk
+from time import strftime
+
+# Create the main application window
+root = tk.Tk()
+root.title("Digital Watch")
+
+# Configure the appearance of the watch
+label = tk.Label(root, font=('Helvetica', 48, 'bold'), background='black', foreground='cyan')
+label.pack(anchor='center')
+
+# Function to update the time display
+def update_time():
+    current_time = strftime('%H:%M:%S %p')  # Format: Hours:Minutes:Seconds AM/PM
+    label.config(text=current_time)
+    label.after(1000, update_time)  # Update every 1000 milliseconds (1 second)
+
+# Start the clock
+update_time()
+
+# Run the main event loop
+root.mainloop()
+```
+
+---
+
+### How It Works:
+1. **`tkinter` Library**: Used for GUI creation.
+2. **`strftime`**: Fetches the current system time in the desired format.
+3. **`after` Method**: Ensures the time updates every second without freezing the interface.
+
+### Key Features:
+- Black background and cyan text for better visibility.
+- Displays time in a `HH:MM:SS AM/PM` format.
+
+You can customize the font, colors, or window size as needed. Let me know if you'd like further enhancements!
